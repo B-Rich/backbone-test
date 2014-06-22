@@ -2,16 +2,20 @@
 <html>
 <head>
 	<title>Todos</title>
-	<link rel="stylesheet" type="text/css" href="static/css/style.css">
+	<link rel="stylesheet" type="text/css" href="app/assets/stylesheets/style.css">
 </head>
 <body>
 	<div id="app"></div>
 	
-	<!-- Javascripts placed at the bottom so page loads faster -->
-	<script src="static/js/jquery.min.js"></script>
-	<script src="static/js/underscore.min.js"></script>
-	<script src="static/js/mustache.min.js"></script>
-	<script src="static/js/backbone.min.js"></script>
-	<script src="static/js/main.js"></script>
+	<script src="app/assets/javascripts/lib/jquery.min.js"></script>
+	<script src="app/assets/javascripts/lib/underscore.min.js"></script>
+	<script src="app/assets/javascripts/lib/backbone.min.js"></script>
+	<script src="app/assets/javascripts/models/todo.js"></script>
+	<script src="app/assets/javascripts/collections/todo_list.js"></script>
+	<script src="app/assets/javascripts/views/todo_view.js"></script>
+	<script src="app/assets/javascripts/views/todo_list_view.js"></script>
+	<script src="app/assets/javascripts/views/new_todo_view.js"></script>
+	<script src="app/assets/javascripts/routers/router.js"></script>
+	<script src="app/assets/javascripts/main.js"></script>
 </body>
 </html>

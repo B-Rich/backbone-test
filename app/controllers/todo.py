@@ -1,5 +1,5 @@
 from lib import appengine
-from app.models import Todo
+from app.models.todo import Todo
 
 class TodoListController(appengine.ListController):
 	url = '/todos'

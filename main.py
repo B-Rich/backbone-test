@@ -1,33 +1,11 @@
-import appengine
-
-ndb = appengine.ndb
-
-
-class Todo(appengine.Model):
-	content = ndb.StringProperty()
-	done = ndb.BooleanProperty()
-	date = ndb.StringProperty()
-
-class MainController(appengine.Controller):
-	url = '/'
-	template = 'index.html'
-
-class TodoListController(appengine.ListController):
-	url = '/todos'
-	model = Todo
-
-class TodoItemController(appengine.ItemController):
-	url = '/todos/([0-9]+)'
-	model = Todo
+from lib.appengine import Application
+from lib.utils import get_controllers
 
 
-app = appengine.Application([
+# Get all controllers in the specified modules
+controllers = get_controllers([
+	'index',
+	'todo',
+])
 
-	# index.html
-	MainController,
-
-	# REST interface
-	TodoListController,
-	TodoItemController,
-
-], debug=True)
+app = Application(controllers, debug=True)
