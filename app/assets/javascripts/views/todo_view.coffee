@@ -4,13 +4,7 @@ class TodoView extends Backbone.View
 		'change input': 'toggleStatus'
 		'click .destroy': 'destroy'
 	
-	# Feo
-	template: _.template '<button class="destroy">&times;</button>' +
-	    '<h3 class="' +
-		'<% if(done) print("done") %>">' +
-		'<input type="checkbox"' +
-		'<% if(done) print("checked") %>/>' +
-		'<a href="/todos/<%= id %>"><%= content %></a></h3>'
+	template: _.template( $('#todo-template').html() )
 	
 	initialize: ->
 		@model.on('change', @render, @)
@@ -23,4 +17,4 @@ class TodoView extends Backbone.View
 		@model.destroy()
 	
 	render: ->
-		@$el.html(this.template @model.toJSON())
+		@$el.html( @template(@model.toJSON()) )

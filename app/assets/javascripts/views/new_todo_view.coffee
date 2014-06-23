@@ -3,8 +3,7 @@ class NewTodoView extends Backbone.View
 	events:
 		'click button': 'addTodo'
 	
-	template: '<form method="post"><input id="text"/>' +
-		'<button type="submit">+</button></form>',
+	template: _.template( $('#new-todo-template').html() )
 	
 	initialize: ->
 		@collection.on('add', @clearInput, @)
@@ -23,4 +22,4 @@ class NewTodoView extends Backbone.View
 		@$('#text').val('')
 	
 	render: ->
-		@$el.html(this.template)
+		@$el.html(this.template())

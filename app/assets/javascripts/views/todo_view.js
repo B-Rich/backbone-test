@@ -18,7 +18,7 @@ TodoView = (function(_super) {
     'click .destroy': 'destroy'
   };
 
-  TodoView.prototype.template = _.template('<button class="destroy">&times;</button>' + '<h3 class="' + '<% if(done) print("done") %>">' + '<input type="checkbox"' + '<% if(done) print("checked") %>/>' + '<a href="/todos/<%= id %>"><%= content %></a></h3>');
+  TodoView.prototype.template = _.template($('#todo-template').html());
 
   TodoView.prototype.initialize = function() {
     this.model.on('change', this.render, this);

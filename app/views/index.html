@@ -2,14 +2,19 @@
 <html>
 <head>
 	<title>Todos</title>
+	<link rel="stylesheet" type="text/css" href="app/assets/stylesheets/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="app/assets/stylesheets/style.css">
 </head>
 <body>
-	<div id="app"></div>
+	<div class="container">
+		<div id="app"></div>
+	</div>
 	
 	<script src="app/assets/javascripts/lib/jquery.min.js"></script>
 	<script src="app/assets/javascripts/lib/underscore.min.js"></script>
 	<script src="app/assets/javascripts/lib/backbone.min.js"></script>
+	<script src="app/assets/javascripts/lib/bootstrap.min.js"></script>
+	
 	<script src="app/assets/javascripts/models/todo.js"></script>
 	<script src="app/assets/javascripts/collections/todo_list.js"></script>
 	<script src="app/assets/javascripts/views/todo_view.js"></script>
@@ -17,5 +22,23 @@
 	<script src="app/assets/javascripts/views/new_todo_view.js"></script>
 	<script src="app/assets/javascripts/routers/router.js"></script>
 	<script src="app/assets/javascripts/main.js"></script>
+	
+	<script type="text/template" id="todo-template">
+		<button class="btn btn-danger destroy">
+			<span class="glyphicon glyphicon-trash"></span>
+		</button>
+			<span class="glyphicon glyphicon-pencil"></span>
+		<button class="btn btn-primary edit"></button>
+		<h3 class="<% if(done) print('done') %>">
+		<input type="checkbox" <% if(done) print("checked") %>/>
+		<a href="/todos/<%= id %>"><%= content %></a></h3>
+	</script>
+	
+	<script type="text/template" id="new-todo-template">
+		<form method="post">
+			<input id="text"/>
+			<button type="submit">+</button>
+		</form>
+	</script>
 </body>
 </html>

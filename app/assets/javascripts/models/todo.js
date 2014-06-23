@@ -15,22 +15,16 @@ Todo = (function(_super) {
 
   Todo.prototype.defaults = function() {
     return {
+      content: '',
       done: false,
       date: new Date
     };
   };
 
   Todo.prototype.toggleStatus = function() {
-    if (this.get('done')) {
-      this.set({
-        'done': false
-      });
-    } else {
-      this.set({
-        'done': true
-      });
-    }
-    return this.save();
+    return this.save({
+      completed: !this.get('completed')
+    });
   };
 
   return Todo;

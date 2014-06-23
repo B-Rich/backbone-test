@@ -17,7 +17,7 @@ NewTodoView = (function(_super) {
     'click button': 'addTodo'
   };
 
-  NewTodoView.prototype.template = '<form method="post"><input id="text"/>' + '<button type="submit">+</button></form>';
+  NewTodoView.prototype.template = _.template($('#new-todo-template').html());
 
   NewTodoView.prototype.initialize = function() {
     return this.collection.on('add', this.clearInput, this);
@@ -43,7 +43,7 @@ NewTodoView = (function(_super) {
   };
 
   NewTodoView.prototype.render = function() {
-    return this.$el.html(this.template);
+    return this.$el.html(this.template());
   };
 
   return NewTodoView;
